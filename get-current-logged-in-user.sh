@@ -5,7 +5,3 @@ currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && 
 echo "$currentUser"
 
 
-
-
-
-apple@tinker.nl
