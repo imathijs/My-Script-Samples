@@ -86,8 +86,8 @@ function dockutil_clean() {
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 user_apps=(
-	#"$launchpath"  ### LAUNCHPAD
-	#"$appstorepath" ### APPSTORE
+	"$launchpath"  ### LAUNCHPAD
+	"$appstorepath" ### APPSTORE
 	"/Applications/Privileges.app"
 	"/Applications/Self Service.app"
 	"$safaripath" ### SAFARI
