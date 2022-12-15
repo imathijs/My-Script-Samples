@@ -76,13 +76,18 @@ function dockutil_default() {
 	done
 }
 
+function dockutil_clean() {
+	echo "Removing all current dock items"
+	$dockutil --remove all --no-restart --allhomes
+}
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # APP LIST
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 user_apps=(
-	"$launchpath"  ### LAUNCHPAD
-	"$appstorepath" ### APPSTORE
+	#"$launchpath"  ### LAUNCHPAD
+	#"$appstorepath" ### APPSTORE
 	"/Applications/Privileges.app"
 	"/Applications/Self Service.app"
 	"$safaripath" ### SAFARI
@@ -102,7 +107,7 @@ user_folders=(
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Start script
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+dockutil_clean
 dockutil_default
 
 echo "Turning off recents"
