@@ -11,6 +11,7 @@ macosProduct=$(sw_vers -productVersion)
 macosShortVers=$(echo "$macosBuild" | head -c2)
 dockutil=$(which dockutil)
 sleepTime=5
+recentapps=yes
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # FUNCTIONS
@@ -111,7 +112,18 @@ dockutil_clean
 dockutil_default
 
 echo "Turning off recents"
-defaults write com.apple.dock show-recents -bool FALSE
+
+#Who is the current user?
+currentuser=$(echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && ! / loginwindows/ { print $3 }')
+
+#Change Dock setting to not show recent apps
+/usr/bin/defaults write "/Users/$currentuser/Library/Preferences/com.apple.dock.plist" show-recents -bool false
+
+#Change ownership of the Dock plist file to the current user.
+chown $currentuser "/Users/$currentuser/Library/Preferences/com.apple.dock.plist"
+
+/usr/bin/defaults write com.apple.dock show-recents -bool FALSE
+
 
 # Cleanup
 sleep $sleepTime
