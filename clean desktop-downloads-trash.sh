@@ -4,7 +4,6 @@
 # CAN BE USED AT FOR LOGIN
 
 currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
-
 uid=$(id -u "${currentUser}")
 
 runAsUser() {  
@@ -16,12 +15,12 @@ runAsUser() {
 	fi
 }
 
-if [ $currentUser == "flex" ]  || [ $currentUser == "flex2" ] ; then
+if [ "$currentUser" == "flex" ]  || [ "$currentUser" == "flex2" ] ; then
 
 echo "Do cleanup for user $currentUser..."
-runAsUser /bin/rm -frv /Users/$currentUser/Desktop/*
-runAsUser /bin/rm -frv /Users/$currentUser/Downloads/*
-runAsUser /bin/rm -frv /Users/$currentUser/.Trash/*
+runAsUser /bin/rm -frv "/Users/$currentUser/Desktop/*"
+runAsUser /bin/rm -frv "/Users/$currentUser/Downloads/*"
+runAsUser /bin/rm -frv "/Users/$currentUser/.Trash/*"
 echo "Clean up done..."
 
 	else
