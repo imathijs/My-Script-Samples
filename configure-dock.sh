@@ -88,10 +88,10 @@ function dockutil_clean() {
 
 user_apps=(
 	"$launchpath"  ### LAUNCHPAD
-	"$appstorepath" ### APPSTORE
+	# "$appstorepath" ### APPSTORE
 	"/Applications/Privileges.app"
-	"/Applications/Self Service.app"
 	"$safaripath" ### SAFARI
+	"/Applications/Google Chrome.app"
 	"/Applications/Microsoft Outlook.app"
 	"/Applications/Microsoft Word.app"
 	"/Applications/Microsoft Excel.app"
@@ -99,6 +99,7 @@ user_apps=(
 	"/Applications/Microsoft Teams.app"
 	"/Applications/Visual Studio Code.app"
 	"$systempath" ### SYSTEM SETTINGS
+	"/Applications/Self Service.app"
 )
 
 user_folders=(
